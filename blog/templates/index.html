@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block  title %}
+{% endblock%}
+
+
+{% block body %}
+{% load static %}
+
+<body  class="background">
+    {% if error_message %}
+    <p class="error-message">{{ error_message }}</p>
+{% endif %}
+   
+    <img src="{% static 'img/bg1.jpg' %}" alt="" class="background-image">
+<div class="paragraph">    
+    <h1 class="welcome">Welcome</h1>
+    <p>Transform your workspace with our premium standing desks.<br> Experience comfort, productivity, and a healthier lifestyle.</p>
+</div>
+
+<div id="Shop" class="shoprow">
+    <div class="col">
+        <h1> Where Comfort Meets Productivity</h1>
+        <p>Welcome to Medical Corner where comfort meets productivity. <br> 
+            Standing desks are meticulously crafted to create a workspace that supports both your body and your tasks.</p>
+            <a href="furniture.html" class="btn"> Shop Now →</a>
+    </div>
+    <div class="bgimage">
+        <img src="{% static 'img/home.png' %}" alt="" class="ads">
+    </div>
+    
+</div>
+      
+
+<div class="box-container" id="products">
+    {% if products %}
+    {% for p in products %}
+    <div class="box">
+
+        <img src="{{p.image.url}}" class="cart-img" alt="Backpack" >
+        <h3>{{ p.name }}</h3>
+        <p>{{ p.prices }}</p>
+        <br><br>
+        {% if user.is_authenticated %}
+    <a href="/ziz/detail/{{ p.id }}/" class="btn"> Shop Now →</a>
+{% else %}
+    <p1 class="btn">Please Login First</p1>
+{% endif %}
+    </div>
+    {% endfor %}
+    {% else %}
+    <h1>sorry we updatesoon</h1>
+    {% endif %}
+ 
+</div>
+<!-- review -->
+
+
+</body>
+
+
+        
+        
+
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'admin_base.html' %}
+
+{% block body %}
+
+<section class="detail-page background">
+<div  class="adminrow">
+    <div class="col">
+      <form method="POST" action="/admin-category/" class="formctrl adminBorder">
+        {% csrf_token %}
+        <label for="" class="form-font">Product's Category</label>
+        <input type="text" class="formstyle" name="title">
+        <input type="submit" class="btn" value="Create cartegory">
+      </form>
+        <form method="POST" action="/admin-create/" class="formctrl adminBorder " enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="form-font2">Products Create</div>
+      
+            <div>
+              <label for="" class="form-font">Product's Name</label>
+              <input type="text" class="formstyle" name="name" required>
+            </div>
+            
+           <div> 
+            <label for="" class="form-font">Product's Image</label>
+            <input type="file" class="formstyle2 formborder" name="image" required>
+          </div>
+
+          <!-- <div>
+            <label for="" class="form-font">Product's Detail</label>
+            <textarea class="formstyle" name="detail" required></textarea>
+          </div> -->
+
+          <div>
+            <label for="" class="form-font">Product's Quantity</label>
+            <input type="number" class="formstyle" name="quantity" required>
+          </div>
+
+          <div>
+            <label for="" class="form-font">Product's Price</label>
+            <input type="text" class="formstyle" name="prices" required>
+          </div>
+
+          <div>
+          
+
+          <div>
+            <label for="" class="form-font">Product's Category</label>
+            <select  name="category">
+              {% for c in cat %}   
+
+              <option value="{{c.id}}">{{ c.title }}</option>
+             {% endfor %}
+          </div>
+          
+            <div>
+              <input type="submit" class="btn" value="Create Product">
+            </div>
+            
+          </div>
+          
+          </form>
+         
+    </div>
+    
+    
+</div>
+</section>
+
+{% endblock %}

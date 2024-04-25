@@ -1,0 +1,198 @@
+
+<body>
+    {% load static %}
+<!-- <nav class="head">
+    <div>image</div>
+    <ul>
+    <div class="nav1 " id="nav1">
+        
+            <li class="active">Home</li>
+                <div class="category">
+                    <li>Category
+                        <ul class="dropdown">
+                            <li>Category1</li>
+                            <li>Category2</li>
+                            <li>Category3</li>
+                        </ul>
+                </div>
+            </li>
+            <li>About us</li>
+            <li>Contact us</li>
+        </ul>
+    </div>
+    
+
+    <div class="nav2">
+        <div class="login">
+            <label for="loginToggle" class="login">Login</label>
+        </div> -->
+            <!-- <a href="shopcart.html">Basket<svg class="shopcart" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 128 128" id="shopping-cart"><path d="M18 110a11 11 0 1 0 11-11 11.012 11.012 0 0 0-11 11zm40 0a11 11 0 1 0 11-11 11.012 11.012 0 0 0-11 11zM6 41h1.19l10.44 42h-1.52a6.107 6.107 0 0 0-6.03 5.04A5.994 5.994 0 0 0 16 95h72a6 6 0 0 0 .49-11.98L113.52 19H122a6.015 6.015 0 0 0 5.92-7.01A6.056 6.056 0 0 0 121.88 7h-14.06a4.006 4.006 0 0 0-3.73 2.54L96.49 29H6.11A6 6 0 1 0 6 41zm-1.97-6.34A2.072 2.072 0 0 1 6.11 33h93.11l8.6-22h14.06a2.073 2.073 0 0 1 2.09 1.66A2.003 2.003 0 0 1 122 15h-11.21L82.64 87H88a2 2 0 0 1 0 4H16a1.996 1.996 0 0 1-1.97-2.33A2.08 2.08 0 0 1 16.11 87H78.1l19.55-50H6a2 2 0 0 1-1.97-2.34zM65 60a2 2 0 0 1 0 4H33a2 2 0 0 1 0-4zm-28-6a2.006 2.006 0 0 1 2-2h20a2 2 0 0 1 0 4H39a2.006 2.006 0 0 1-2-2zm24 16a2.006 2.006 0 0 1-2 2H39a2 2 0 0 1 0-4h20a2.006 2.006 0 0 1 2 2z"></path></svg></a> -->
+                <!-- <label  class="menu-label">
+                  <button onclick="togglemenu"> <i class="fa-solid fa-bars"></i></button>
+                </label>
+             
+
+    </div>
+</nav>
+<style>
+    .nav1 {
+        display: none;
+    }
+</style> -->
+
+    <!-- //   function closeAlert(element) {
+    //   element.parentElement.remove();
+    // }
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     var menu = document.querySelector('.menu-label');
+    //     var category = document.querySelector('.category');
+
+    //     menu.addEventListener('mouseenter', function () {
+    //         menu.querySelector('.nav1').classList.remove('hidden');
+    //     });
+
+    //     menu.addEventListener('mouseleave', function () {
+    //         menu.querySelector('.nav1').classList.add('hidden');
+    //     });
+
+    //     category.addEventListener('mouseenter', function () {
+    //         category.querySelector('.dropdown').classList.remove('hidden');
+    //     });
+
+    //     category.addEventListener('mouseleave', function () {
+    //         category.querySelector('.dropdown').classList.add('hidden');
+    //     });
+
+    // });
+    // function togglemenu(){
+    //     var menu = document.getElementById("nav1")
+    //     if(menu.style.display == 'none'){
+    //         menu.style.display = 'block';
+            
+    //     }
+    //     else{
+    //         menu.style.display = 'none';
+    //     }
+    // } -->
+
+    <style>
+        .menu {
+          display: none;
+        }
+      </style>
+      </head>
+      <body>
+       
+      
+        <nav class="head">
+            <img src="{% static 'img/logo.png' %}" alt="" class="logo-img">
+            <ul>
+            <div class="nav1 " id="nav1">
+                
+                <li><a href="/admin-home/" class="active">Your Page</a></li>
+                
+                    <li> <a href="/admin-create/" class="active">Create</a>  </li> 
+                    <li> <a href="/admin-order-list/" class="active">Order</a>  </li> 
+                    <li><a href="/admin-reviews/" class="active">Review</a></li>
+                </ul>
+            </div>
+
+    <div class="nav2">
+      {% if user.is_authenticated %}
+     
+           <!-- logout -->
+           <div class="login">
+            
+            <a href="/a-logout/" class="login-btn" >Logout</a>
+            
+          </div>
+          {% else %}   
+          <!-- login -->
+        <div class="login">
+          <!-- Button to trigger the dropdown -->
+          <label class="login-btn" onclick="loginToggle()">Login</label>
+          
+          <!-- Dropdown content (Form) -->
+            
+        </div> 
+         
+      {% endif %}    
+          <a href="/ziz/cart/" class="basket"><p>---------</p><svg class="shopcart" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 128 128" id="shopping-cart"><path d="M18 110a11 11 0 1 0 11-11 11.012 11.012 0 0 0-11 11zm40 0a11 11 0 1 0 11-11 11.012 11.012 0 0 0-11 11zM6 41h1.19l10.44 42h-1.52a6.107 6.107 0 0 0-6.03 5.04A5.994 5.994 0 0 0 16 95h72a6 6 0 0 0 .49-11.98L113.52 19H122a6.015 6.015 0 0 0 5.92-7.01A6.056 6.056 0 0 0 121.88 7h-14.06a4.006 4.006 0 0 0-3.73 2.54L96.49 29H6.11A6 6 0 1 0 6 41zm-1.97-6.34A2.072 2.072 0 0 1 6.11 33h93.11l8.6-22h14.06a2.073 2.073 0 0 1 2.09 1.66A2.003 2.003 0 0 1 122 15h-11.21L82.64 87H88a2 2 0 0 1 0 4H16a1.996 1.996 0 0 1-1.97-2.33A2.08 2.08 0 0 1 16.11 87H78.1l19.55-50H6a2 2 0 0 1-1.97-2.34zM65 60a2 2 0 0 1 0 4H33a2 2 0 0 1 0-4zm-28-6a2.006 2.006 0 0 1 2-2h20a2 2 0 0 1 0 4H39a2.006 2.006 0 0 1-2-2zm24 16a2.006 2.006 0 0 1-2 2H39a2 2 0 0 1 0-4h20a2.006 2.006 0 0 1 2 2z"></path></svg></a>
+          <!-- --- -->
+        <li onclick="toggleMenu()" class="menubar"> <i class="fa-solid fa-bars size"></i></li>
+    </div>  
+    
+</nav>     
+    
+         <!-- form -->
+        <div class="menu-navbar">
+         <div class="loginForm"  id="loginForm">
+          <form method="POST" action="/login/" class="formctrl">
+            {% csrf_token %}
+            <div class="form-font">Create a new account?<a href="/register/">Sign up</a></div>
+            <div class="form-font2">Login Form</div>
+            <div>
+              <label for="" class="form-font">username</label>
+              <input type="text" class="formstyle" name="username" required>
+            </div>
+           <div> 
+            <label for="" class="form-font">password</label>
+            <input type="password" class="formstyle" name="password" required>
+          </div>
+          
+          <div class="form-password">
+            <div>
+            <label for="" class="form-font3">Remember me</label>
+            <input type="checkbox" >
+          </div>
+            <div class="form-font">
+              Forgot password
+            </div>
+            
+
+          </div>
+          <div>
+            <input type="submit" class="btn">
+          </div>
+          </form>
+        </div>
+        
+        <ul class="menu" id="menu">
+            <li><a href="/admin-home/" class="active">Your Page</a></li>
+            
+                    <li> <a href="/admin-create/" class="active">Create</a>  </li> 
+                    <li> <a href="/admin-order-list/" class="active">Order</a>  </li> 
+                    <li><a href="/admin-reviews/" class="active">Review</a></li>
+          </ul>
+
+         
+    </div>
+  </div>
+    
+  
+      
+      <script>
+        function toggleMenu() {
+          var menu = document.getElementById("menu");
+          if (menu.style.display === "none") {
+            menu.style.display = "block";
+          } else {
+            menu.style.display = "none";
+          }
+        }
+  
+        function loginToggle() {
+          var login = document.getElementById("loginForm");
+          if (login.style.display === "none") {
+            login.style.display = "block";
+          } else {
+            login.style.display = "none";
+          }
+        }
+      </script>
+
+      
+    
+</body>
+</html>

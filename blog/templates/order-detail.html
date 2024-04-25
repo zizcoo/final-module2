@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="mt-5">
+    <div class="order-detail background">
+        <h1>Order Details</h1>
+        <div class="order-summary">
+            <h2>{{ orderdetail.id }}</h2>
+            <p>Date: {{ orderdetail.created_at }}</p>
+            <p>Total: {{ orderdetail.total_price }}</p>
+        </div>
+
+        <div class="order-items">
+            {% for item in orderdetail.product %}
+            <div class="order-item">
+                <h3>Product: {{ item.name }}</h3>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p>Unit Price: {{ item.price }}</p>
+                <p>Total: {{ item.total }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="/ziz/orderList/" class="btn btn-back">Back to Orders</a>
+    </div>
+   
+ 
+</div>
+{% endblock body %}
+
+
+
+  

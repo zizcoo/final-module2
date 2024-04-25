@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block body %}
+<form id="myForm" method="GET">
+<section class="detail-page background">
+   
+<div class="box">
+
+    <img src="{{products.image.url}}" class="cart-img" alt="Backpack" class="image">
+    <h3>{{products.name}}</h3>
+    <p> {{products.prices}}</p>
+    <br><br>
+<div class="detail-box">
+    <button onclick="summitForm('buynow')" type="submit" class="detail-btn">Buy Now</button>
+    
+        <div><input type="number" class="quantity-box" name="quantity" value="1" min="1" max="10"></div>
+    
+    
+    <button onclick="summitForm('addtocart')" class="detail-btn">add to cart</button>
+</div>
+</div>
+<div class="detail-pbox">
+<div class="detail-paragraph">
+    <h1>Item-Detail</h1>
+    <p>{{products.detail}}</p>
+    
+</div>
+</div>
+</form>
+</section>
+<div>
+<section class="reviews">
+    <div class="comment-box">
+        <form method="POST">
+            {% csrf_token %}
+            <textarea name="comment" class="review-form" cols="30" rows="10" placeholder="Review Form"></textarea>
+            <input type="submit" value="Create" class="btn">
+        </form>
+   
+    </div>
+    <h2> Customer Reviews </h2>
+    <div class="review-container">
+        <div class="row2">
+            {% for c in cmd %}
+            <div class="review">
+                <i class="fa fa-quote-left"></i>
+                <p>{{c.comment}}</p>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3>{{c.author}}</h3>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+</div>
+
+
+
+
+<script>
+    function summitForm(action){
+        form = document.getElementById('myForm')
+        if(action === 'buynow'){
+            form.action = "/ziz/order/{{products.id}}/"
+        }
+        else if(action === 'addtocart'){
+            form.action = "/ziz/cartCreate/{{products.id}}/"
+        }
+    }
+
+</script>
+
+{% endblock %}

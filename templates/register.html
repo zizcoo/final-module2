@@ -1,0 +1,39 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body class="background register-page">
+<div class="registerForm"  id="loginForm">
+    {% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    <form method="POST" action="/register/" class="formctrl">
+      {% csrf_token %}
+      
+      <div class="form-font2">Register</div>
+      <div>
+        <label for="" class="form-font">username</label>
+        <input type="text" class="formstyle" name="username" required>
+      </div>
+      <div>
+        <label for="" class="form-font">Email</label>
+        <input type="email" class="formstyle" name="email" required>
+      </div>
+     <div> 
+      <label for="" class="form-font">password</label>
+      <input type="password" class="formstyle" name="password" required>
+    </div>
+    <div> 
+        <label for="" class="form-font">Confirm password</label>
+        <input type="password" class="formstyle" name="cfpassword" required>
+      </div>
+      <div>
+        <input type="submit" class="btn" value="sign up">
+      </div>
+      <p>Already have an account?<a href="/login">Signin</a></p>
+    </div>
+    
+    </form>
+  </div>
+</body>
+ 

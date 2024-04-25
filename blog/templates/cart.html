@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block body %}
+<section class="cart-page background-white">
+    <div class="basket-page" id="products">
+        {% if cart %}
+            {% for c in cart %}
+            <div class="basket-box">
+            <div class="basket-img">
+                <img src="{{c.product.image.url}}" alt="error" >
+            </div>
+            <div class="basket-text">
+                <h3>{{c.product.name}}</h3>
+                <h4>{{c.product.prices}}</h4>
+                <div class="qt-box">
+                    <p class="qt">{{c.qty}}
+                        
+                    </p>
+                    <p class="remove">
+                        <a href="/ziz/cartDelete/{{c.id}}" class="remove-btn">Remove</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+                {% endfor %}
+            </div>
+            <div class="cart-total-container">
+                <h3>Total Amount of your cart</h3>
+                <div class="cart-section">
+                    {% for c in cart %}
+                        <div class="total">
+                            <p>Name</p>
+                            <p>{{ c.product.name }}</p>
+                        </div>
+                        <div class="total">
+                            <p>Price</p>
+                            <p>{{ c.product.prices }}</p>
+                        </div>
+                        <div class="total">
+                            <p>Quantity</p>
+                            <p>{{ c.qty }}</p>
+                        </div>
+                        <div class="total">
+                            <p>Total Price</p>
+                            <p>{{c.totalp}}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="checkout">
+                    <button class="checkout_btn">Check</button>
+                    
+                </div>
+            </div>
+        {% else %}
+            <h1>There is nothing in the cart!!!</h1>
+        {% endif %}
+    </div>
+</section>
+
+
+
+<!-- <div class="cart-page background">
+    <div class="cart-text">Your Shop Cart</div>
+
+    
+    <div class="basket-box">
+        <div class="basket-img">
+            <img src="../image/table1.JPG" alt="error">
+        </div>
+        <div class="basket-text">
+            <h3>Foldable Camp Chair</h3>
+            <h4>Prices: $30</h4>
+            <div class="qt-box">
+                <p class="qt">Quantity
+                    <input value="1">
+                </p>
+                <p class="remove">
+                    <input type="submit" value="Remove" class="remove-btn">
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="basket-box">
+        <div class="basket-img">
+            <img src="../image/sleeping(2),JPG.JPG" alt="error">
+        </div>
+        <div class="basket-text">
+            <h3>Sleeping Bag</h3>
+            <h4>Prices: $20</h4>
+            <div class="qt-box">
+                <p class="qt">Quantity
+                    <input value="1">
+                </p>
+                <p class="remove">
+                    <input type="submit" value="Remove" class="remove-btn">
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="basket-box">
+        <div class="basket-img">
+            <img src="../image/sleeping.JPG" alt="error">
+        </div>
+        <div class="basket-text">
+            <h3>Sleeping Pad</h3>
+            <h4>Prices: $70</h4>
+            <div class="qt-box">
+                <p class="qt">Quantity
+                    <input value="2">
+                </p>
+                <p class="remove">
+                    <input type="submit" value="Remove" class="remove-btn">
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+</div> -->
+
+{% endblock %}

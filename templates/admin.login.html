@@ -1,0 +1,35 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body class="background register-page">
+<div class="adminForm"  id="loginForm">
+   
+    <form method="POST" action="/admin-Login/" class="formctrl">
+      {% csrf_token %}
+      
+      <div class="form-font2">Admin Login</div>
+
+      <div>
+        <label for="" class="form-font">username</label>
+        <input type="text" class="formstyle" name="adminusername" required>
+      </div>
+      
+     <div> 
+      <label for="" class="form-font">password</label>
+      <input type="password" class="formstyle" name="adminpassword" required>
+    </div>
+    
+      <div>
+        <input type="submit" class="btn" value="login">
+      </div>
+      <!-- {% if error_message %}
+      <p class="error1">{{ error_message }}</p>
+  {% endif %} -->
+    </div>
+   
+    
+    </form>
+  </div>
+</body>
+ 

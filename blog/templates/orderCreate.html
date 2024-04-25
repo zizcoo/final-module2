@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<section class="background">
+  <div class="orderCreate-page">
+  <table class="orderTable">
+    
+    <thead>
+      <tr>
+        <td class="table-data1"> id </td>
+        <td class="table-data1"> Image </td>
+        <td class="table-data1"> Name </td>
+        <td class="table-data1"> Price </td>
+        <td class="table-data1"> Quantity</td>
+        <td class="table-data1"> Total</td>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="table-data2"> {{ product.id }} </td>
+        <td><img src="{{ product.image.url }}" alt="Product Image" class="image-size"></td>
+        <td class="table-data2"> {{ product.name }} </td>
+        <td class="table-data2"> {{ product.prices }} </td>
+        <td class="table-data2"> {{ product.quantity }} </td>  
+        <td class="table-data2"> {{ product.total }} </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <form method="POST"  class="formctrl ">
+    {% csrf_token %}
+    
+    <div class="form-font2">Your Order</div>
+
+    <div>
+      <label for="" class="form-font">Your Name</label>
+      <input type="text" class="formstyle" name="name" required>
+    </div>
+    
+    <div> 
+      <label for="" class="form-font">Phone Number</label>
+      <input type="number" class="formstyle" name="phone" required>
+    </div>
+
+    <div>
+      <label for="" class="form-font">Address</label>
+      <input type="text" class="formstyle" name="address" required>
+    </div>
+
+    <div>
+      <input type="submit" class="btn" value="Order">
+    </div>
+  </form>  
+  </div>
+</section>
+{% endblock %}

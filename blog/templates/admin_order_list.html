@@ -1,0 +1,78 @@
+{% extends 'admin_base.html' %}
+{% block  title %}
+{% endblock%}
+
+
+{% block body %}
+{% load static %}
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 100px;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    tr:hover {
+        background-color: #f2f2f2;
+    }
+</style>
+    <h1>Admin Order List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>User</th>
+                <th>Total Price</th>
+                <th>Total Quantity</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.user.username }}</td>
+                <td>{{ order.total_price }}</td>
+                <td>{{ order.total_qty }}</td>
+                <td>{{ order.name }}</td>
+                <td>{{ order.phone }}</td>
+                <td>{{ order.address }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+        
+        
+
+
+{% endblock %}
